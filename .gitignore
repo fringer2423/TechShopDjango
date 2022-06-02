@@ -8,7 +8,7 @@
 # testing
 /frontend/coverage
 /frontend/README.md
-
+/frontend/.eslintcache
 # misc
 .DS_Store
 .env.local
