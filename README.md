@@ -1,4 +1,4 @@
-# Tech Shop Ecommerce Website c Django + React
+# Tech Shop E-commerce Website c Django + React
 
 # Особенности
 * Полнофункциональная корзина для покупок
