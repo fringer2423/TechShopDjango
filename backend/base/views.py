@@ -1,38 +1,37 @@
-from django.shortcuts import render
-from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .products import products
+from .models import Product
+from .serializers import ProductSerializer
 
 
 @api_view(['GET'])
 def getRoutes(request):
     routes = [
         '/api/products/',
-        '/api/products/create/',
-        '/api/products/upload/',
-        '/api/products/<id>/reviews/',
-        '/api/products/top/',
-        '/api/products/<id>/',
-        '/api/products/delete/<id>/',
-        '/api/products/<update>/<id>',
+        '/api/product/create/',
+        '/api/product/upload/',
+        '/api/product/<id>/reviews/',
+        '/api/product/top/',
+        '/api/product/<id>/',
+        '/api/product/delete/<id>/',
+        '/api/product/<update>/<id>',
     ]
     return Response(routes)
 
 
 @api_view(['GET'])
 def getProducts(request):
-    return Response(products)
+    products = Product.objects.all()
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getProduct(request, pk):
-    product = None
-    for item in products:
-        if item['_id'] == pk:
-            product = item
-            break
-    if product is None:
+    try:
+        product = Product.objects.get(_id=pk)
+    except Product.DoesNotExist:
         return Response({"error": f"Product with id={pk} not found"}, status=status.HTTP_404_NOT_FOUND)
-    return Response(product)
+    serializer = ProductSerializer(product)
+    return Response(serializer.data)
