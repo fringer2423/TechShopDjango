@@ -5,3 +5,6 @@ class BaseConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'base'
     verbose_name = 'Главное'
+
+    def ready(self):
+        import base.signals

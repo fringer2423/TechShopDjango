@@ -1,23 +1,8 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Product
-from .serializers import ProductSerializer
-
-
-@api_view(['GET'])
-def getRoutes(request):
-    routes = [
-        '/api/products/',
-        '/api/product/create/',
-        '/api/product/upload/',
-        '/api/product/<id>/reviews/',
-        '/api/product/top/',
-        '/api/product/<id>/',
-        '/api/product/delete/<id>/',
-        '/api/product/<update>/<id>',
-    ]
-    return Response(routes)
+from ..models import Product
+from ..serializers import ProductSerializer
 
 
 @api_view(['GET'])
