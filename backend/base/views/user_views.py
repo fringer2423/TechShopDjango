@@ -25,6 +25,25 @@ class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def updateUserProfile(request):
+    user = request.user
+    serializer = UserSerializerWithToken(user, many=False)
+
+    data = request.data
+    user.first_name = data['name']
+    user.username = data['email']
+    user.email = data['email']
+
+    if data['password'] != '':
+        user.password = make_password(data['password'])
+
+    user.save()
+
+    return Response(serializer.data)
+
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def getUserProfile(request):
@@ -50,8 +69,8 @@ def registerUser(request):
             email=data['email'],
             password=make_password(data['password'])
         )
-        serializer = UserSerializer(user, many=False)
+        serializer = UserSerializerWithToken(user, many=False)
         return Response(serializer.data)
     except:
-        message = {'detail': 'Пользователь с таким e-mail уже существует'}
+        message = {'detail': 'Пользователь с таким email уже существует'}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
