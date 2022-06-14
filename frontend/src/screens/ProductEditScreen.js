@@ -111,7 +111,7 @@ function ProductEditScreen({match, history}) {
                     : (
                         <Form onSubmit={submitHandler}>
 
-                            <Form.Group controlId='name'>
+                            <Form.Group controlId='name' className='md-3'>
                                 <Form.Label>Название</Form.Label>
                                 <Form.Control
 
@@ -123,7 +123,7 @@ function ProductEditScreen({match, history}) {
                                 </Form.Control>
                             </Form.Group>
 
-                            <Form.Group controlId='price'>
+                            <Form.Group controlId='price' className='md-3'>
                                 <Form.Label>Стоимость</Form.Label>
                                 <Form.Control
 
@@ -136,10 +136,9 @@ function ProductEditScreen({match, history}) {
                             </Form.Group>
 
 
-                            <Form.Group controlId='image'>
+                            <Form.Group controlId='image' className='md-3'>
                                 <Form.Label>Изображение</Form.Label>
                                 <Form.Control
-
                                     type='text'
                                     placeholder='Выберите изображение'
                                     value={image}
@@ -147,20 +146,21 @@ function ProductEditScreen({match, history}) {
                                 >
                                 </Form.Control>
 
-                                <Form.File
+                                <Form.Control
+                                    type='file'
                                     id='image-file'
                                     label='Выберите файл'
                                     custom
                                     onChange={uploadFileHandler}
                                 >
 
-                                </Form.File>
+                                </Form.Control>
                                 {uploading && <Loader/>}
 
                             </Form.Group>
 
 
-                            <Form.Group controlId='brand'>
+                            <Form.Group controlId='brand' className='md-3'>
                                 <Form.Label>Бренд</Form.Label>
                                 <Form.Control
 
@@ -172,7 +172,7 @@ function ProductEditScreen({match, history}) {
                                 </Form.Control>
                             </Form.Group>
 
-                            <Form.Group controlId='countinstock'>
+                            <Form.Group controlId='countinstock' className='md-3'>
                                 <Form.Label>Остаток</Form.Label>
                                 <Form.Control
 
@@ -184,7 +184,7 @@ function ProductEditScreen({match, history}) {
                                 </Form.Control>
                             </Form.Group>
 
-                            <Form.Group controlId='category'>
+                            <Form.Group controlId='category' className='md-3'>
                                 <Form.Label>Категория</Form.Label>
                                 <Form.Control
 
@@ -196,10 +196,10 @@ function ProductEditScreen({match, history}) {
                                 </Form.Control>
                             </Form.Group>
 
-                            <Form.Group controlId='description'>
+                            <Form.Group controlId='description' className='md-3'>
                                 <Form.Label>Описание</Form.Label>
                                 <Form.Control
-
+                                    className='md-3'
                                     type='text'
                                     placeholder='Введите описание'
                                     value={description}
