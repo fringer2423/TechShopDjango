@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {Form, Button, Col} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import FormContainer from '../components/FormContainer'
@@ -6,7 +6,6 @@ import CheckoutSteps from '../components/CheckoutSteps'
 import {savePaymentMethod} from '../actions/cartActions'
 
 function PaymentScreen({history}) {
-
     const cart = useSelector(state => state.cart)
     const {shippingAddress} = cart
 
@@ -29,7 +28,7 @@ function PaymentScreen({history}) {
             <CheckoutSteps step1 step2 step3/>
 
             <Form onSubmit={submitHandler}>
-                <Form.Group className="mb-3" >
+                <Form.Group className="mb-3">
                     <Form.Label as='legend'>Выберете метод</Form.Label>
                     <Col>
                         <Form.Check
@@ -40,7 +39,6 @@ function PaymentScreen({history}) {
                             checked
                             onChange={(e) => setPaymentMethod(e.target.value)}
                         >
-
                         </Form.Check>
                     </Col>
                 </Form.Group>

@@ -40,7 +40,6 @@ function ProductCarousel() {
                         ))}
                     </Carousel>
                 )
-
     )
 }
 

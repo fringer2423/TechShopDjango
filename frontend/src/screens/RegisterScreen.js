@@ -36,7 +36,6 @@ function RegisterScreen({location, history}) {
         } else {
             dispatch(register(name, email, password))
         }
-
     }
 
     return (

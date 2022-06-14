@@ -33,7 +33,7 @@ function LoginScreen({location, history}) {
         <FormContainer>
             <h1>Авторизация</h1>
             {error && <Message variant='danger'>{error}</Message>}
-            {loading && <Loader />}
+            {loading && <Loader/>}
 
             <Form onSubmit={submitHandler}>
                 <Form.Group className="mb-3" controlId='email'>
@@ -45,7 +45,6 @@ function LoginScreen({location, history}) {
                         onChange={(e) => setEmail(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
-
 
                 <Form.Group className="mb-3" controlId='password'>
                     <Form.Label>Пароль</Form.Label>

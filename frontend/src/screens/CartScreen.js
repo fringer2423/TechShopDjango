@@ -59,7 +59,6 @@ function CartScreen({match, location, history}) {
                                             onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}
                                         >
                                             {
-
                                                 [...Array(item.countInStock).keys()].map((x) => (
                                                     <option key={x + 1} value={x + 1}>
                                                         {x + 1}
@@ -105,7 +104,6 @@ function CartScreen({match, location, history}) {
                             Перейти к оформлению
                         </Button>
                     </ListGroup.Item>
-
 
                 </Card>
             </Col>

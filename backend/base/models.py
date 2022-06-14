@@ -51,7 +51,7 @@ class Order(models.Model):
     paymentMethod = models.CharField(max_length=200, null=True, blank=True, verbose_name='Способ оплаты')
     taxPrice = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True, verbose_name='Налог')
     shippingPrice = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True,
-                                        verbose_name='Стоитмость доставки')
+                                        verbose_name='Стоимость доставки')
     totalPrice = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True,
                                      verbose_name='Итоговая цена')
     isPaid = models.BooleanField(default=False, verbose_name='Оплачено')

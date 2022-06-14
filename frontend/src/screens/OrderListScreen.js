@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Table, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
@@ -7,7 +7,6 @@ import Message from '../components/Message'
 import {listOrders} from '../actions/orderActions'
 
 function OrderListScreen({history}) {
-
     const dispatch = useDispatch()
 
     const orderList = useSelector(state => state.orderList)
@@ -16,16 +15,13 @@ function OrderListScreen({history}) {
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo} = userLogin
 
-
     useEffect(() => {
         if (userInfo && userInfo.isAdmin) {
             dispatch(listOrders())
         } else {
             history.push('/login')
         }
-
     }, [dispatch, history, userInfo])
-
 
     return (
         <div>
@@ -76,8 +72,6 @@ function OrderListScreen({history}) {
                                                     Детали
                                                 </Button>
                                             </LinkContainer>
-
-
                                         </td>
                                     </tr>
                                 ))}

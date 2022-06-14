@@ -9,9 +9,7 @@ import FormContainer from '../components/FormContainer'
 import {listProductDetails, updateProduct} from '../actions/productActions'
 import {PRODUCT_UPDATE_RESET} from '../constants/productConstants'
 
-
 function ProductEditScreen({match, history}) {
-
     const productId = match.params.id
 
     const [name, setName] = useState('')
@@ -31,9 +29,7 @@ function ProductEditScreen({match, history}) {
     const productUpdate = useSelector(state => state.productUpdate)
     const {error: errorUpdate, loading: loadingUpdate, success: successUpdate} = productUpdate
 
-
     useEffect(() => {
-
         if (successUpdate) {
             dispatch({type: PRODUCT_UPDATE_RESET})
             history.push('/admin/productlist')
@@ -48,11 +44,8 @@ function ProductEditScreen({match, history}) {
                 setCategory(product.category)
                 setCountInStock(product.countInStock)
                 setDescription(product.description)
-
             }
         }
-
-
     }, [dispatch, product, productId, history, successUpdate])
 
     const submitHandler = (e) => {
@@ -87,7 +80,6 @@ function ProductEditScreen({match, history}) {
 
             const {data} = await axios.post('/api/products/upload/', formData, config)
 
-
             setImage(data)
             setUploading(false)
 
@@ -114,7 +106,6 @@ function ProductEditScreen({match, history}) {
                             <Form.Group controlId='name' className='md-3'>
                                 <Form.Label>Название</Form.Label>
                                 <Form.Control
-
                                     type='name'
                                     placeholder='Введите название'
                                     value={name}
@@ -126,7 +117,6 @@ function ProductEditScreen({match, history}) {
                             <Form.Group controlId='price' className='md-3'>
                                 <Form.Label>Стоимость</Form.Label>
                                 <Form.Control
-
                                     type='number'
                                     placeholder='Введите стоимость'
                                     value={price}
@@ -134,7 +124,6 @@ function ProductEditScreen({match, history}) {
                                 >
                                 </Form.Control>
                             </Form.Group>
-
 
                             <Form.Group controlId='image' className='md-3'>
                                 <Form.Label>Изображение</Form.Label>
@@ -159,11 +148,9 @@ function ProductEditScreen({match, history}) {
 
                             </Form.Group>
 
-
                             <Form.Group controlId='brand' className='md-3'>
                                 <Form.Label>Бренд</Form.Label>
                                 <Form.Control
-
                                     type='text'
                                     placeholder='Введите бренд'
                                     value={brand}
@@ -175,7 +162,6 @@ function ProductEditScreen({match, history}) {
                             <Form.Group controlId='countinstock' className='md-3'>
                                 <Form.Label>Остаток</Form.Label>
                                 <Form.Control
-
                                     type='number'
                                     placeholder='Введите остаток'
                                     value={countInStock}
@@ -187,7 +173,6 @@ function ProductEditScreen({match, history}) {
                             <Form.Group controlId='category' className='md-3'>
                                 <Form.Label>Категория</Form.Label>
                                 <Form.Control
-
                                     type='text'
                                     placeholder='Введите категорию'
                                     value={category}
@@ -208,17 +193,13 @@ function ProductEditScreen({match, history}) {
                                 </Form.Control>
                             </Form.Group>
 
-
                             <Button type='submit' variant='primary'>
                                 Обновить
                             </Button>
-
                         </Form>
                     )}
-
             </FormContainer>
         </div>
-
     )
 }
 

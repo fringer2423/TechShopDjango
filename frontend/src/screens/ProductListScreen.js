@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Table, Button, Row, Col} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
@@ -8,8 +8,7 @@ import Paginate from '../components/Paginate'
 import {listProducts, deleteProduct, createProduct} from '../actions/productActions'
 import {PRODUCT_CREATE_RESET} from '../constants/productConstants'
 
-function ProductListScreen({history, match}) {
-
+function ProductListScreen({history}) {
     const dispatch = useDispatch()
 
     const productList = useSelector(state => state.productList)
@@ -21,29 +20,23 @@ function ProductListScreen({history, match}) {
     const productCreate = useSelector(state => state.productCreate)
     const {loading: loadingCreate, error: errorCreate, success: successCreate, product: createdProduct} = productCreate
 
-
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo} = userLogin
 
     let keyword = history.location.search
     useEffect(() => {
         dispatch({type: PRODUCT_CREATE_RESET})
-
         if (!userInfo.isAdmin) {
             history.push('/login')
         }
-
         if (successCreate) {
             history.push(`/admin/product/${createdProduct._id}/edit`)
         } else {
             dispatch(listProducts(keyword))
         }
-
     }, [dispatch, history, userInfo, successDelete, successCreate, createdProduct, keyword])
 
-
     const deleteHandler = (id) => {
-
         if (window.confirm('Вы действительно хотите удалить товар?')) {
             dispatch(deleteProduct(id))
         }
@@ -69,7 +62,6 @@ function ProductListScreen({history, match}) {
 
             {loadingDelete && <Loader/>}
             {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
-
 
             {loadingCreate && <Loader/>}
             {errorCreate && <Message variant='danger'>{errorCreate}</Message>}

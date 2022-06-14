@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
 from ..models import Product, Order, OrderItem, ShippingAddress
-from ..serializers import ProductSerializer, OrderSerializer
+from ..serializers import OrderSerializer
 
 from rest_framework import status
 from datetime import datetime
@@ -41,7 +41,7 @@ def addOrderItems(request):
             country=data['shippingAddress']['country'],
         )
 
-        # (3) Create order items adn set order to orderItem relationship
+        # (3) Create order items and set order to orderItem relationship
         for i in orderItems:
             product = Product.objects.get(_id=i['product'])
 

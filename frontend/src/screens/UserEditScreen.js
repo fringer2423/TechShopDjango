@@ -25,12 +25,10 @@ function UserEditScreen({match, history}) {
     const {error: errorUpdate, loading: loadingUpdate, success: successUpdate} = userUpdate
 
     useEffect(() => {
-
         if (successUpdate) {
             dispatch({type: USER_UPDATE_RESET})
             history.push('/admin/userlist')
         } else {
-
             if (!user.name || user._id !== Number(userId)) {
                 dispatch(getUserDetails(userId))
             } else {
@@ -39,7 +37,6 @@ function UserEditScreen({match, history}) {
                 setIsAdmin(user.isAdmin)
             }
         }
-
     }, [user, userId, successUpdate, history])
 
     const submitHandler = (e) => {
@@ -65,7 +62,6 @@ function UserEditScreen({match, history}) {
                             <Form.Group controlId='name'>
                                 <Form.Label>Имя</Form.Label>
                                 <Form.Control
-
                                     type='name'
                                     placeholder='Введите имя'
                                     value={name}
@@ -98,13 +94,10 @@ function UserEditScreen({match, history}) {
                             <Button type='submit' variant='primary'>
                                 Обновить
                             </Button>
-
                         </Form>
                     )}
-
             </FormContainer>
         </div>
-
     )
 }
 

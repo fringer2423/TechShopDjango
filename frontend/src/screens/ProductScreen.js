@@ -34,9 +34,7 @@ function ProductScreen({match, history}) {
             setComment('')
             dispatch({type: PRODUCT_CREATE_REVIEW_RESET})
         }
-
         dispatch(listProductDetails(match.params.id))
-
     }, [dispatch, match, successProductReview])
 
     const addToCartHandler = () => {
@@ -64,9 +62,8 @@ function ProductScreen({match, history}) {
                         <div>
                             <Row>
                                 <Col md={6}>
-                                    <Image src={product.image} alt={product.name} fluid className="mb-3" />
+                                    <Image src={product.image} alt={product.name} fluid className="mb-3"/>
                                 </Col>
-
 
                                 <Col md={3}>
                                     <ListGroup variant="flush">
@@ -89,9 +86,8 @@ function ProductScreen({match, history}) {
                                     </ListGroup>
                                 </Col>
 
-
                                 <Col md={3}>
-                                    <Card className="mb-3" >
+                                    <Card className="mb-3">
                                         <ListGroup variant='flush'>
                                             <ListGroup.Item>
                                                 <Row>
@@ -121,20 +117,17 @@ function ProductScreen({match, history}) {
                                                                 onChange={(e) => setQty(e.target.value)}
                                                             >
                                                                 {
-
                                                                     [...Array(product.countInStock).keys()].map((x) => (
                                                                         <option key={x + 1} value={x + 1}>
                                                                             {x + 1}
                                                                         </option>
                                                                     ))
                                                                 }
-
                                                             </Form.Control>
                                                         </Col>
                                                     </Row>
                                                 </ListGroup.Item>
                                             )}
-
 
                                             <ListGroup.Item>
                                                 <Button
@@ -152,10 +145,10 @@ function ProductScreen({match, history}) {
 
                             <Row>
                                 <Col md={6}>
-                                    <h4 className="mb-3" >Отзывы</h4>
+                                    <h4 className="mb-3">Отзывы</h4>
                                     {product.reviews.length === 0 && <Message variant='info'>Нет отзывов</Message>}
 
-                                    <ListGroup variant='flush' className="mb-3" >
+                                    <ListGroup variant='flush' className="mb-3">
                                         {product.reviews.map((review) => (
                                             <ListGroup.Item key={review._id}>
                                                 <strong>{review.name}</strong>
@@ -165,8 +158,8 @@ function ProductScreen({match, history}) {
                                             </ListGroup.Item>
                                         ))}
 
-                                        <ListGroup.Item >
-                                            <h4 className="mb-3" >Напишите отзыв</h4>
+                                        <ListGroup.Item>
+                                            <h4 className="mb-3">Напишите отзыв</h4>
 
                                             {loadingProductReview && <Loader/>}
                                             {successProductReview &&
@@ -177,7 +170,7 @@ function ProductScreen({match, history}) {
                                             {userInfo ? (
                                                 <Form onSubmit={submitHandler}>
                                                     <Form.Group controlId='rating'>
-                                                        <Form.Label className="mb-3" >Рейтинг</Form.Label>
+                                                        <Form.Label className="mb-3">Рейтинг</Form.Label>
                                                         <Form.Control
                                                             as='select'
                                                             value={rating}
@@ -193,8 +186,8 @@ function ProductScreen({match, history}) {
                                                         </Form.Control>
                                                     </Form.Group>
 
-                                                    <Form.Group controlId='comment' className="mb-3" >
-                                                        <Form.Label className="mb-3" >Отзыв</Form.Label>
+                                                    <Form.Group controlId='comment' className="mb-3">
+                                                        <Form.Label className="mb-3">Отзыв</Form.Label>
                                                         <Form.Control
                                                             as='textarea'
                                                             row='5'
@@ -213,7 +206,8 @@ function ProductScreen({match, history}) {
 
                                                 </Form>
                                             ) : (
-                                                <Message variant='info'>Пожалуйста, <Link to='/login'>войдите</Link> и напишите отзыв</Message>
+                                                <Message variant='info'>Пожалуйста, <Link to='/login'>войдите</Link> и
+                                                    напишите отзыв</Message>
                                             )}
                                         </ListGroup.Item>
                                     </ListGroup>
@@ -221,10 +215,7 @@ function ProductScreen({match, history}) {
                             </Row>
                         </div>
                     )
-
             }
-
-
         </div>
     )
 }

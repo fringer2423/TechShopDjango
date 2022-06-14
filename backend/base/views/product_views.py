@@ -12,7 +12,7 @@ from rest_framework import status
 @api_view(['GET'])
 def getProducts(request):
     query = request.query_params.get('keyword')
-    if query == None:
+    if query is None:
         query = ''
 
     products = Product.objects.filter(
@@ -28,7 +28,7 @@ def getProducts(request):
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
 
-    if page == None:
+    if page is None:
         page = 1
 
     page = int(page)

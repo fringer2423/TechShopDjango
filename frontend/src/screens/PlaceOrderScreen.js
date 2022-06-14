@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {Button, Row, Col, ListGroup, Image, Card} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
@@ -8,7 +8,6 @@ import {createOrder} from '../actions/orderActions'
 import {ORDER_CREATE_RESET} from '../constants/orderConstants'
 
 function PlaceOrderScreen({history}) {
-
     const orderCreate = useSelector(state => state.orderCreate)
     const {order, error, success} = orderCreate
 
@@ -21,7 +20,6 @@ function PlaceOrderScreen({history}) {
     cart.taxPrice = Number((0.082) * cart.itemsPrice).toFixed(2)
 
     cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)).toFixed(2)
-
 
     if (!cart.paymentMethod) {
         history.push('/payment')
@@ -54,7 +52,6 @@ function PlaceOrderScreen({history}) {
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
                             <h2>Доставка</h2>
-
                             <p>
                                 <strong>Доставка: </strong>
                                 {cart.shippingAddress.address}, {cart.shippingAddress.city}
@@ -99,9 +96,7 @@ function PlaceOrderScreen({history}) {
                                 </ListGroup>
                             )}
                         </ListGroup.Item>
-
                     </ListGroup>
-
                 </Col>
 
                 <Col md={4}>
@@ -139,7 +134,6 @@ function PlaceOrderScreen({history}) {
                                 </Row>
                             </ListGroup.Item>
 
-
                             <ListGroup.Item>
                                 {error && <Message variant='danger'>{error}</Message>}
                             </ListGroup.Item>
@@ -154,7 +148,6 @@ function PlaceOrderScreen({history}) {
                                     Сделать заказ
                                 </Button>
                             </ListGroup.Item>
-
                         </ListGroup>
                     </Card>
                 </Col>

@@ -11,11 +11,11 @@ function Paginate({pages, page, keyword = '', isAdmin = false}) {
             <Pagination>
                 {[...Array(pages).keys()].map((x) => (
                     <LinkContainer activeLabel=''
-                        key={x + 1}
-                        to={!isAdmin ?
-                            `/?keyword=${keyword}&page=${x + 1}`
-                            : `/admin/productlist/?keyword=${keyword}&page=${x + 1}`
-                        }
+                                   key={x + 1}
+                                   to={!isAdmin ?
+                                       `/?keyword=${keyword}&page=${x + 1}`
+                                       : `/admin/productlist/?keyword=${keyword}&page=${x + 1}`
+                                   }
                     >
                         <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item>
                     </LinkContainer>

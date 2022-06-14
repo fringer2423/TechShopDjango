@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Row, Col} from 'react-bootstrap'
 import Product from '../components/Product'
@@ -7,7 +7,6 @@ import Message from '../components/Message'
 import Paginate from '../components/Paginate'
 import ProductCarousel from '../components/ProductCarousel'
 import {listProducts} from '../actions/productActions'
-
 
 function HomeScreen({history}) {
     const dispatch = useDispatch()
@@ -18,7 +17,6 @@ function HomeScreen({history}) {
 
     useEffect(() => {
         dispatch(listProducts(keyword))
-
     }, [dispatch, keyword])
 
     return (
