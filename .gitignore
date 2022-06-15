@@ -1,14 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/frontend/node_modules
-/frontend/.pnp
+backend/frontend/node_modules
+backend/frontend/.pnp
 .pnp.js
 
 # testing
-/frontend/coverage
-/frontend/README.md
-/frontend/.eslintcache
+backend/frontend/coverage
+backend/frontend/README.md
+backend/frontend/.eslintcache
 # misc
 .DS_Store
 .env.local

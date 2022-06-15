@@ -18,12 +18,15 @@
 # Инструкции по загрузке и настройке
 
 * 1 - Проект клонирования: git clone https://github.com/fringer2423/techShopDjango
-* 2 - cd techShopDjango
+* 2 - cd techShopDjango\backend
 * 3 - Создайте виртуальную среду: virtualenv myenv
 * 4 - myenv\scripts\activate
 * 5 - pip install -r requirements.txt
-* 6 - python manage.py runserver
+* 6 - cd frontend
+* 7 - npm run build
+* 8 - cd ..
+* 9 - python manage.py runserver
 
 # Установка модулей react
-* 1 - cd frontend
+* 1 - cd backend\frontend
 * 2 - npm install
